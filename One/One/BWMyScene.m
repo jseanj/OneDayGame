@@ -9,6 +9,11 @@
 #import "BWMyScene.h"
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 #define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
+#define UIColorFromRGB(r, g, b)                   \
+    [UIColor colorWithRed : ((CGFloat)r) / 255.0f \
+    green : ((CGFloat)g) / 255.0f                 \
+    blue : ((CGFloat)b) / 255.0f                  \
+    alpha : 1.0f]
 static const uint32_t kPlayerBitMask =  0x1 << 0;
 static const uint32_t kBallBitMask   =  0x1 << 1;
 static const uint32_t kCircleBitMask   =  0x1 << 2;
@@ -20,6 +25,7 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
 @property (nonatomic, assign) CGMutablePathRef path;
 @property (nonatomic, assign) BOOL isClockWise;
 @property (nonatomic, assign) BOOL isStart;
+@property (nonatomic, assign) BOOL isEnd;
 @end
 
 @implementation BWMyScene
@@ -29,6 +35,9 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
         /* Setup your scene here */
         self.physicsWorld.contactDelegate = self;
         self.isStart = YES;
+        self.isEnd = NO;
+        
+        self.backgroundColor = UIColorFromRGB(70, 200, 200);
         
         SKSpriteNode *circle = [SKSpriteNode spriteNodeWithImageNamed:@"circle"];
         circle.position = CGPointMake(self.size.width/2, self.size.height/2);
@@ -39,8 +48,8 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
         circle.physicsBody.dynamic = NO;
         [self addChild:circle];
         
-        SKSpriteNode *node = [SKSpriteNode spriteNodeWithColor:[UIColor redColor] size:CGSizeMake(6, 50)];
-        //node.position = CGPointMake(self.size.width/2, self.size.height/2);
+        SKSpriteNode *node = [SKSpriteNode spriteNodeWithColor:UIColorFromRGB(216, 91, 91) size:CGSizeMake(6, 50)];
+        node.position = CGPointMake(self.size.width/2, self.size.height/2-150);
         node.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:node.size];
         node.physicsBody.affectedByGravity = NO;
         node.physicsBody.categoryBitMask = kPlayerBitMask;
@@ -58,12 +67,12 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
         SKAction *followTrack = [SKAction followPath:self.path asOffset:NO orientToPath:YES duration:3.0];
         
         self.action = [SKAction repeatActionForever:followTrack];
-        [self.player runAction:[SKAction sequence:@[[SKAction waitForDuration:1], self.action]]];
+        [self.player runAction:self.action];
          CGPathRelease(self.path);
         
-        SKSpriteNode *ball = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:CGSizeMake(20, 20)];
+        SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
         ball.position = CGPointMake(self.size.width/2, self.size.height/2);
-        ball.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:ball.size];
+        ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:10];
         ball.physicsBody.affectedByGravity = NO;
         ball.physicsBody.categoryBitMask = kBallBitMask;
         ball.physicsBody.collisionBitMask = 0;
@@ -85,8 +94,19 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
         [self.ball.physicsBody applyImpulse:CGVectorMake(0, -2)];
         self.isStart = NO;
     }
-    
-    
+    if (self.isEnd) {
+        self.isEnd = NO;
+        SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
+        ball.position = CGPointMake(self.size.width/2, self.size.height/2);
+        ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:10];
+        ball.physicsBody.affectedByGravity = NO;
+        ball.physicsBody.categoryBitMask = kBallBitMask;
+        ball.physicsBody.collisionBitMask = 0;
+        ball.physicsBody.contactTestBitMask = kPlayerBitMask | kCircleBitMask;
+        [self addChild:ball];
+        self.ball = ball;
+        self.isStart = YES;
+    }
     [self.player removeAllActions];
     self.action = nil;
     self.path = CGPathCreateMutable();
@@ -120,6 +140,35 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
 {
+    CGFloat desX = 0;
+    CGFloat desY = 0;
+    
+    desX = self.size.width - self.player.position.x;
+    desY = self.size.height - self.player.position.y;
+    if (desX > self.size.width/2) {
+        desX += 10;
+    } else {
+        desX -= 10;
+    }
+    if (desY > self.size.height/2) {
+        desY += 10;
+    } else {
+        desY -= 10;
+    }
+    
+    if (contact.bodyA.categoryBitMask == kPlayerBitMask && contact.bodyB.categoryBitMask == kBallBitMask) {
+        //bodyB是球
+        SKSpriteNode *ball = (id)contact.bodyB.node;
+        [ball runAction:[SKAction moveTo:CGPointMake(desX, desY) duration:1.5]];
+    } else if (contact.bodyA.categoryBitMask == kBallBitMask && contact.bodyB.categoryBitMask == kPlayerBitMask) {
+        //bodyA是球
+        SKSpriteNode *ball = (id)contact.bodyA.node;
+        [ball runAction:[SKAction moveTo:CGPointMake(desX, desY) duration:1.5]];
+    }
+}
+
+- (void)didEndContact:(SKPhysicsContact *)contact
+{
     if (contact.bodyA.categoryBitMask == kCircleBitMask && contact.bodyB.categoryBitMask == kBallBitMask) {
         [self gameOver];
         return;
@@ -128,35 +177,14 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
         [self gameOver];
         return;
     }
-    
-    CGFloat vectorX = -(self.player.position.x - self.size.width/2)/150;
-    CGFloat vectorY = -(self.player.position.y - self.size.height/2)/150;
-    if (vectorX > 0) {
-        vectorX += 2;
-    } else {
-        vectorX -= 2;
-    }
-    if (vectorY > 0) {
-        vectorY += 2;
-    } else {
-        vectorY -= 2;
-    }
-    if (contact.bodyA.categoryBitMask == kPlayerBitMask && contact.bodyB.categoryBitMask == kBallBitMask) {
-        //bodyB是球
-        SKSpriteNode *ball = (id)contact.bodyB.node;
-        NSLog(@"1. %f, %f", self.player.position.x - self.size.width/2, self.player.position.y - self.size.height/2);
-        [ball.physicsBody applyImpulse:CGVectorMake(vectorX, vectorY)];
-    } else if (contact.bodyA.categoryBitMask == kBallBitMask && contact.bodyB.categoryBitMask == kPlayerBitMask) {
-        //bodyA是球
-        NSLog(@"2. %f, %f", self.player.position.x - self.size.width/2, self.player.position.y - self.size.height/2);
-        SKSpriteNode *ball = (id)contact.bodyA.node;
-        [ball.physicsBody applyImpulse:CGVectorMake(vectorX, vectorY)];
-    }
 }
 
 - (void)gameOver
 {
     NSLog(@"game over");
+    [self.ball removeFromParent];
+    //[self.player removeAllActions];
+    self.isEnd = YES;
 }
 
 -(void)update:(CFTimeInterval)currentTime {
