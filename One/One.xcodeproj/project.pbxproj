@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		775661D2192369A20046EC71 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 775661D1192369A20046EC71 /* CaviarDreams.ttf */; };
+		775661D419236C280046EC71 /* Origin-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 775661D319236C280046EC71 /* Origin-Regular.ttf */; };
 		779846371921CCF90091BB3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779846361921CCF90091BB3E /* Foundation.framework */; };
 		779846391921CCF90091BB3E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779846381921CCF90091BB3E /* CoreGraphics.framework */; };
 		7798463B1921CCF90091BB3E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7798463A1921CCF90091BB3E /* UIKit.framework */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		775661D1192369A20046EC71 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
+		775661D319236C280046EC71 /* Origin-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Origin-Regular.ttf"; sourceTree = "<group>"; };
 		779846331921CCF90091BB3E /* One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		779846361921CCF90091BB3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		779846381921CCF90091BB3E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -126,6 +130,8 @@
 				7798464E1921CCF90091BB3E /* BWViewController.m */,
 				779846501921CCF90091BB3E /* BWMyScene.h */,
 				779846511921CCF90091BB3E /* BWMyScene.m */,
+				775661D319236C280046EC71 /* Origin-Regular.ttf */,
+				775661D1192369A20046EC71 /* CaviarDreams.ttf */,
 				779846551921CCF90091BB3E /* Images.xcassets */,
 				7798463F1921CCF90091BB3E /* Supporting Files */,
 			);
@@ -240,6 +246,8 @@
 			files = (
 				779846431921CCF90091BB3E /* InfoPlist.strings in Resources */,
 				779846561921CCF90091BB3E /* Images.xcassets in Resources */,
+				775661D2192369A20046EC71 /* CaviarDreams.ttf in Resources */,
+				775661D419236C280046EC71 /* Origin-Regular.ttf in Resources */,
 				7798464C1921CCF90091BB3E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,6 +477,7 @@
 				7798466E1921CCF90091BB3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7798466F1921CCF90091BB3E /* Build configuration list for PBXNativeTarget "OneTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +486,7 @@
 				779846711921CCF90091BB3E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
