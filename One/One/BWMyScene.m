@@ -310,6 +310,7 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
 - (void)gameOver
 {
     NSLog(@"game over");
+    [self.delegate sceneGameEnd];
     [self.ball removeFromParent];
     //[self.player removeAllActions];
     self.isEnd = YES;
