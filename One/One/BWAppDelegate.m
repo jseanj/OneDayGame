@@ -7,13 +7,24 @@
 //
 
 #import "BWAppDelegate.h"
-
+#import "WXApi.h"
 @implementation BWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [WXApi registerApp:@"wxab247b7ad0a3c37d"];
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [WXApi handleOpenURL:url delegate:self];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

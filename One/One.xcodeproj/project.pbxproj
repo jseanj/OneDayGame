@@ -17,6 +17,13 @@
 		3647E2461923C0BB00498CC2 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3647E2451923C0BB00498CC2 /* libGoogleAdMobAds.a */; };
 		775661D2192369A20046EC71 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 775661D1192369A20046EC71 /* CaviarDreams.ttf */; };
 		775661D419236C280046EC71 /* Origin-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 775661D319236C280046EC71 /* Origin-Regular.ttf */; };
+		775661EB1924AD690046EC71 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 775661E81924AD690046EC71 /* libWeChatSDK.a */; };
+		775661EF1924BA620046EC71 /* bump1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 775661EC1924BA620046EC71 /* bump1.aif */; };
+		775661F01924BA620046EC71 /* bump2.aif in Resources */ = {isa = PBXBuildFile; fileRef = 775661ED1924BA620046EC71 /* bump2.aif */; };
+		775661F11924BA620046EC71 /* bump3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 775661EE1924BA620046EC71 /* bump3.aif */; };
+		775661F51924BA700046EC71 /* target1.aif in Resources */ = {isa = PBXBuildFile; fileRef = 775661F21924BA700046EC71 /* target1.aif */; };
+		775661F61924BA700046EC71 /* target2.aif in Resources */ = {isa = PBXBuildFile; fileRef = 775661F31924BA700046EC71 /* target2.aif */; };
+		775661F71924BA700046EC71 /* target3.aif in Resources */ = {isa = PBXBuildFile; fileRef = 775661F41924BA700046EC71 /* target3.aif */; };
 		779846371921CCF90091BB3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779846361921CCF90091BB3E /* Foundation.framework */; };
 		779846391921CCF90091BB3E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779846381921CCF90091BB3E /* CoreGraphics.framework */; };
 		7798463B1921CCF90091BB3E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7798463A1921CCF90091BB3E /* UIKit.framework */; };
@@ -68,6 +75,15 @@
 		3647E2451923C0BB00498CC2 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
 		775661D1192369A20046EC71 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
 		775661D319236C280046EC71 /* Origin-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Origin-Regular.ttf"; sourceTree = "<group>"; };
+		775661E81924AD690046EC71 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		775661E91924AD690046EC71 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		775661EA1924AD690046EC71 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		775661EC1924BA620046EC71 /* bump1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bump1.aif; sourceTree = "<group>"; };
+		775661ED1924BA620046EC71 /* bump2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bump2.aif; sourceTree = "<group>"; };
+		775661EE1924BA620046EC71 /* bump3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bump3.aif; sourceTree = "<group>"; };
+		775661F21924BA700046EC71 /* target1.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = target1.aif; sourceTree = "<group>"; };
+		775661F31924BA700046EC71 /* target2.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = target2.aif; sourceTree = "<group>"; };
+		775661F41924BA700046EC71 /* target3.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = target3.aif; sourceTree = "<group>"; };
 		779846331921CCF90091BB3E /* One.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = One.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		779846361921CCF90091BB3E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		779846381921CCF90091BB3E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,6 +117,7 @@
 				3647E2261923BE9F00498CC2 /* CoreTelephony.framework in Frameworks */,
 				3647E2241923BE9600498CC2 /* StoreKit.framework in Frameworks */,
 				3647E2221923BE8E00498CC2 /* AVFoundation.framework in Frameworks */,
+				775661EB1924AD690046EC71 /* libWeChatSDK.a in Frameworks */,
 				779846391921CCF90091BB3E /* CoreGraphics.framework in Frameworks */,
 				3647E2461923C0BB00498CC2 /* libGoogleAdMobAds.a in Frameworks */,
 				3647E2201923BE7E00498CC2 /* SystemConfiguration.framework in Frameworks */,
@@ -145,9 +162,20 @@
 			path = adMobSDK;
 			sourceTree = "<group>";
 		};
+		775661E71924AD690046EC71 /* weixinSDK */ = {
+			isa = PBXGroup;
+			children = (
+				775661E81924AD690046EC71 /* libWeChatSDK.a */,
+				775661E91924AD690046EC71 /* WXApi.h */,
+				775661EA1924AD690046EC71 /* WXApiObject.h */,
+			);
+			path = weixinSDK;
+			sourceTree = "<group>";
+		};
 		7798462A1921CCF90091BB3E = {
 			isa = PBXGroup;
 			children = (
+				775661E71924AD690046EC71 /* weixinSDK */,
 				3647E2381923C0BB00498CC2 /* adMobSDK */,
 				7798463E1921CCF90091BB3E /* One */,
 				779846621921CCF90091BB3E /* OneTests */,
@@ -187,6 +215,12 @@
 		7798463E1921CCF90091BB3E /* One */ = {
 			isa = PBXGroup;
 			children = (
+				775661F21924BA700046EC71 /* target1.aif */,
+				775661F31924BA700046EC71 /* target2.aif */,
+				775661F41924BA700046EC71 /* target3.aif */,
+				775661EC1924BA620046EC71 /* bump1.aif */,
+				775661ED1924BA620046EC71 /* bump2.aif */,
+				775661EE1924BA620046EC71 /* bump3.aif */,
 				779846471921CCF90091BB3E /* BWAppDelegate.h */,
 				779846481921CCF90091BB3E /* BWAppDelegate.m */,
 				7798464A1921CCF90091BB3E /* Main.storyboard */,
@@ -310,9 +344,15 @@
 			files = (
 				779846431921CCF90091BB3E /* InfoPlist.strings in Resources */,
 				779846561921CCF90091BB3E /* Images.xcassets in Resources */,
+				775661EF1924BA620046EC71 /* bump1.aif in Resources */,
 				775661D2192369A20046EC71 /* CaviarDreams.ttf in Resources */,
+				775661F01924BA620046EC71 /* bump2.aif in Resources */,
+				775661F71924BA700046EC71 /* target3.aif in Resources */,
 				775661D419236C280046EC71 /* Origin-Regular.ttf in Resources */,
+				775661F61924BA700046EC71 /* target2.aif in Resources */,
+				775661F11924BA620046EC71 /* bump3.aif in Resources */,
 				7798464C1921CCF90091BB3E /* Main.storyboard in Resources */,
+				775661F51924BA700046EC71 /* target1.aif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +505,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/adMobSDK",
+					"$(PROJECT_DIR)/weixinSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -484,6 +525,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/adMobSDK",
+					"$(PROJECT_DIR)/weixinSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
