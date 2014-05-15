@@ -21,7 +21,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.showTimes = 0;
+    self.showTimes = 1;
 }
 
 - (void)viewWillLayoutSubviews

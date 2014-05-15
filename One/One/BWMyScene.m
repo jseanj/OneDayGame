@@ -163,9 +163,9 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     if (self.isStart) {
         //即将进入游戏中画面
-        UITouch *touch = [touches anyObject];
-        CGPoint location = [touch locationInNode:self];
-        SKSpriteNode *touchedNode = (id)[self nodeAtPoint:location];
+        //UITouch *touch = [touches anyObject];
+        //CGPoint location = [touch locationInNode:self];
+        //SKSpriteNode *touchedNode = (id)[self nodeAtPoint:location];
         //if ([touchedNode.name isEqualToString:@"tap"] || [touchedNode.name isEqualToString:@"circle"]) {
             [self.titleLabel removeFromParent];
             [self.startLabel removeFromParent];
@@ -249,7 +249,7 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
             self.isStart = YES;
         } else if ([touchedNode.name isEqualToString:@"weixin"] && !self.weixin.hidden) {
             NSLog(@"weixin");
-            [self sendToWeiXin];
+            [self sendAppContent];
         }
     }
     [self.player removeAllActions];
@@ -451,7 +451,7 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
     [self runAction:sound];
 }
 
-- (void)sendToWeiXin
+- (void)sendAppContent
 {
     WXMediaMessage *message = [WXMediaMessage message];
     message.title = [NSString stringWithFormat:@"我刚在Tango Ball里得到%d分，小伙伴们，快来挑战我吧！", self.score];
@@ -482,9 +482,9 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
 -(void)RespAppContent
 {
     WXMediaMessage *message = [WXMediaMessage message];
-    message.title = @"我刚在Tango Ball里得到125分，小伙伴们，快来挑战我吧！";
-    message.description = @"我刚在Tango Ball里得到125分，小伙伴们，快来挑战我吧！";
-    [message setThumbImage:[UIImage imageNamed:@"test.png"]];
+    message.title = [NSString stringWithFormat:@"我刚在Tango Ball里得到%d分，小伙伴们，快来挑战我吧！", self.score];
+    message.description = [NSString stringWithFormat:@"我刚在Tango Ball里得到%d分，小伙伴们，快来挑战我吧！", self.score];
+    [message setThumbImage:[UIImage imageNamed:@"wechat"]];
     
     WXAppExtendObject *ext = [WXAppExtendObject object];
     ext.extInfo = @"<xml>extend info</xml>";
