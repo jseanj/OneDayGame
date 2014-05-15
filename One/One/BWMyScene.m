@@ -7,9 +7,7 @@
 //
 
 #import "BWMyScene.h"
-#import "WXApi.h"
 
-#define BUFFER_SIZE 1024 * 100
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 #define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))
 #define UIColorFromRGB(r, g, b)                   \
@@ -249,7 +247,7 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
             self.isStart = YES;
         } else if ([touchedNode.name isEqualToString:@"weixin"] && !self.weixin.hidden) {
             NSLog(@"weixin");
-            [self sendAppContent];
+            [self.delegate sendWeixin:self.score];
         }
     }
     [self.player removeAllActions];
@@ -450,62 +448,6 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
     SKAction *sound = self.targetSounds[randomSoundIndex];
     [self runAction:sound];
 }
-
-- (void)sendAppContent
-{
-    WXMediaMessage *message = [WXMediaMessage message];
-    message.title = [NSString stringWithFormat:@"我刚在Tango Ball里得到%d分，小伙伴们，快来挑战我吧！", self.score];
-    message.description = [NSString stringWithFormat:@"我刚在Tango Ball里得到%d分，小伙伴们，快来挑战我吧！", self.score];
-    [message setThumbImage:[UIImage imageNamed:@"wechat"]];
-    
-    WXAppExtendObject *ext = [WXAppExtendObject object];
-    ext.extInfo = @"<xml>extend info</xml>";
-    ext.url = @"https://itunes.apple.com/cn/app/2048/id840919914?mt=8";
-    
-    Byte* pBuffer = (Byte *)malloc(BUFFER_SIZE);
-    memset(pBuffer, 0, BUFFER_SIZE);
-    NSData* data = [NSData dataWithBytes:pBuffer length:BUFFER_SIZE];
-    free(pBuffer);
-    
-    ext.fileData = data;
-    
-    message.mediaObject = ext;
-    
-    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-    req.bText = NO;
-    req.message = message;
-    req.scene = WXSceneTimeline;
-    
-    [WXApi sendReq:req];
-}
-
--(void)RespAppContent
-{
-    WXMediaMessage *message = [WXMediaMessage message];
-    message.title = [NSString stringWithFormat:@"我刚在Tango Ball里得到%d分，小伙伴们，快来挑战我吧！", self.score];
-    message.description = [NSString stringWithFormat:@"我刚在Tango Ball里得到%d分，小伙伴们，快来挑战我吧！", self.score];
-    [message setThumbImage:[UIImage imageNamed:@"wechat"]];
-    
-    WXAppExtendObject *ext = [WXAppExtendObject object];
-    ext.extInfo = @"<xml>extend info</xml>";
-    ext.url = @"https://itunes.apple.com/cn/app/2048/id840919914?mt=8";
-    
-    Byte* pBuffer = (Byte *)malloc(BUFFER_SIZE);
-    memset(pBuffer, 0, BUFFER_SIZE);
-    NSData* data = [NSData dataWithBytes:pBuffer length:BUFFER_SIZE];
-    free(pBuffer);
-    
-    ext.fileData = data;
-    
-    message.mediaObject = ext;
-    
-    GetMessageFromWXResp* resp = [[GetMessageFromWXResp alloc] init];
-    resp.message = message;
-    resp.bText = NO;
-    
-    [WXApi sendResp:resp];
-}
-
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */

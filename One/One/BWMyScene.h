@@ -11,6 +11,7 @@
 @protocol BWMySceneDelegate <NSObject>
 
 - (void)sceneGameEnd;
+- (void)sendWeixin:(int)score;
 
 @end
 
