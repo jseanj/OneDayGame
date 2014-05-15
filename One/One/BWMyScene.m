@@ -119,6 +119,14 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
                                              [SKAction fadeInWithDuration:1.0]]]
                         ]];
         self.startLabel = tapStart;
+        
+        SKSpriteNode *wechat = [SKSpriteNode spriteNodeWithImageNamed:@"wechat"];
+        wechat.position = CGPointMake(self.size.width/2 + 100, self.size.height/2 - 180);
+        [self addChild:wechat];
+        
+        SKSpriteNode *music = [SKSpriteNode spriteNodeWithImageNamed:@"music"];
+        music.position = CGPointMake(self.size.width/2 - 100, self.size.height/2 - 183);
+        [self addChild:music];
 
         
     }
@@ -310,6 +318,7 @@ static const uint32_t kCircleBitMask   =  0x1 << 2;
 - (void)gameOver
 {
     NSLog(@"game over");
+    [self.delegate sceneGameEnd];
     [self.ball removeFromParent];
     //[self.player removeAllActions];
     self.isEnd = YES;
