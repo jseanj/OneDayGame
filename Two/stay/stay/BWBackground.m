@@ -14,12 +14,12 @@
 {
     int index = 0;
     if (!isStartNode) {
-        //index = [self createIndex];
-        index = 1;
+        index = [self createIndex];
     }
     SKTexture * texture = [SKTexture textureWithImageNamed:[NSString stringWithFormat:@"path%d", index]];
     SKSpriteNode *bg = [SKSpriteNode spriteNodeWithTexture:texture];
     bg.anchorPoint = CGPointZero;
+    bg.zPosition = 1;
     bg.name = @"background";
     bg.physicsBody = [self createPhysicsBody:index];
     bg.physicsBody.dynamic = NO;
@@ -33,7 +33,7 @@
 {
     int random = 0;
     while (random == 0) {
-        random = arc4random_uniform((u_int32_t)24);
+        random = arc4random_uniform((u_int32_t)3); //24
     }
     return random;
 }
@@ -79,10 +79,50 @@
         [rightPath addLineToPoint:CGPointMake(182, 565)];
 
     }
+    
+    if (index == 2) {
+        [leftPath moveToPoint:CGPointMake(130, 0)];
+        [leftPath addLineToPoint:CGPointMake(130, 82)];
+        [leftPath addLineToPoint:CGPointMake(233, 227)];
+        [leftPath addLineToPoint:CGPointMake(30, 297)];
+        [leftPath addLineToPoint:CGPointMake(17, 310)];
+        [leftPath addLineToPoint:CGPointMake(13, 323)];
+        [leftPath addLineToPoint:CGPointMake(16, 335)];
+        [leftPath addLineToPoint:CGPointMake(132, 496)];
+        [leftPath addLineToPoint:CGPointMake(132, 567)];
+        
+        [rightPath moveToPoint:CGPointMake(188, 0)];
+        [rightPath addLineToPoint:CGPointMake(188, 71)];
+        [rightPath addLineToPoint:CGPointMake(305, 230)];
+        [rightPath addLineToPoint:CGPointMake(305, 248)];
+        [rightPath addLineToPoint:CGPointMake(301, 262)];
+        [rightPath addLineToPoint:CGPointMake(85, 337)];
+        [rightPath addLineToPoint:CGPointMake(185, 478)];
+        [rightPath addLineToPoint:CGPointMake(187, 567)];
+    }
+    
+    if (index == 3) {
+        [leftPath moveToPoint:CGPointMake(130, 0)];
+        [leftPath addLineToPoint:CGPointMake(130, 82)];
+        [leftPath addLineToPoint:CGPointMake(233, 227)];
+        [leftPath addLineToPoint:CGPointMake(30, 297)];
+        [leftPath addLineToPoint:CGPointMake(17, 310)];
+        [leftPath addLineToPoint:CGPointMake(13, 323)];
+        [leftPath addLineToPoint:CGPointMake(16, 335)];
+        [leftPath addLineToPoint:CGPointMake(132, 496)];
+        [leftPath addLineToPoint:CGPointMake(132, 567)];
+        
+        [rightPath moveToPoint:CGPointMake(188, 0)];
+        [rightPath addLineToPoint:CGPointMake(188, 71)];
+        [rightPath addLineToPoint:CGPointMake(305, 230)];
+        [rightPath addLineToPoint:CGPointMake(305, 248)];
+        [rightPath addLineToPoint:CGPointMake(301, 262)];
+        [rightPath addLineToPoint:CGPointMake(85, 337)];
+        [rightPath addLineToPoint:CGPointMake(185, 478)];
+        [rightPath addLineToPoint:CGPointMake(187, 567)];
+    }
+    
     SKPhysicsBody *bodyLeft = [SKPhysicsBody bodyWithEdgeChainFromPath:leftPath.CGPath];
-    bodyLeft.categoryBitMask = kBackgroundBitMask;
-    bodyLeft.collisionBitMask = 0;
-    bodyLeft.contactTestBitMask = kBallBitMask;
     SKPhysicsBody *bodyRight = [SKPhysicsBody bodyWithEdgeChainFromPath:rightPath.CGPath];
     body = [SKPhysicsBody bodyWithBodies:@[bodyLeft, bodyRight]];
     return body;
