@@ -24,6 +24,15 @@
 		7756623B192B1DE90046EC71 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 77566239192B1DE90046EC71 /* InfoPlist.strings */; };
 		7756623D192B1DE90046EC71 /* stayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7756623C192B1DE90046EC71 /* stayTests.m */; };
 		77566248192B37B80046EC71 /* BWBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 77566247192B37B80046EC71 /* BWBackground.m */; };
+		7756624E192B55720046EC71 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7756624B192B55720046EC71 /* libWeChatSDK.a */; };
+		7756625D192B55840046EC71 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7756625C192B55840046EC71 /* libGoogleAdMobAds.a */; };
+		7756625F192B57220046EC71 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7756625E192B57220046EC71 /* AudioToolbox.framework */; };
+		77566261192B572A0046EC71 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77566260192B572A0046EC71 /* MessageUI.framework */; };
+		77566263192B57340046EC71 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77566262192B57340046EC71 /* SystemConfiguration.framework */; };
+		77566265192B573F0046EC71 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77566264192B573F0046EC71 /* AVFoundation.framework */; };
+		77566267192B57460046EC71 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77566266192B57460046EC71 /* StoreKit.framework */; };
+		77566269192B574E0046EC71 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77566268192B574E0046EC71 /* CoreTelephony.framework */; };
+		7756626B192B57560046EC71 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7756626A192B57560046EC71 /* AdSupport.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +71,29 @@
 		77566246192B37B80046EC71 /* BWBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWBackground.h; sourceTree = "<group>"; };
 		77566247192B37B80046EC71 /* BWBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWBackground.m; sourceTree = "<group>"; };
 		77566249192B3E5D0046EC71 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		7756624B192B55720046EC71 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		7756624C192B55720046EC71 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		7756624D192B55720046EC71 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		77566250192B55840046EC71 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		77566251192B55840046EC71 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		77566252192B55840046EC71 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		77566253192B55840046EC71 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		77566254192B55840046EC71 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		77566255192B55840046EC71 /* GADInAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchase.h; sourceTree = "<group>"; };
+		77566256192B55840046EC71 /* GADInAppPurchaseDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInAppPurchaseDelegate.h; sourceTree = "<group>"; };
+		77566257192B55840046EC71 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		77566258192B55840046EC71 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		77566259192B55840046EC71 /* GADModules.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADModules.h; sourceTree = "<group>"; };
+		7756625A192B55840046EC71 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		7756625B192B55840046EC71 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		7756625C192B55840046EC71 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		7756625E192B57220046EC71 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		77566260192B572A0046EC71 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		77566262192B57340046EC71 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		77566264192B573F0046EC71 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		77566266192B57460046EC71 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		77566268192B574E0046EC71 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		7756626A192B57560046EC71 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +101,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7756626B192B57560046EC71 /* AdSupport.framework in Frameworks */,
+				77566269192B574E0046EC71 /* CoreTelephony.framework in Frameworks */,
+				77566267192B57460046EC71 /* StoreKit.framework in Frameworks */,
+				77566265192B573F0046EC71 /* AVFoundation.framework in Frameworks */,
+				77566263192B57340046EC71 /* SystemConfiguration.framework in Frameworks */,
+				77566261192B572A0046EC71 /* MessageUI.framework in Frameworks */,
+				7756625F192B57220046EC71 /* AudioToolbox.framework in Frameworks */,
 				7756620D192B1DE90046EC71 /* CoreGraphics.framework in Frameworks */,
 				7756620F192B1DE90046EC71 /* UIKit.framework in Frameworks */,
 				77566211192B1DE90046EC71 /* SpriteKit.framework in Frameworks */,
 				7756620B192B1DE90046EC71 /* Foundation.framework in Frameworks */,
+				7756624E192B55720046EC71 /* libWeChatSDK.a in Frameworks */,
+				7756625D192B55840046EC71 /* libGoogleAdMobAds.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +133,8 @@
 		775661FE192B1DE90046EC71 = {
 			isa = PBXGroup;
 			children = (
+				7756624F192B55840046EC71 /* adMobSDK */,
+				7756624A192B55720046EC71 /* weixinSDK */,
 				77566212192B1DE90046EC71 /* stay */,
 				77566236192B1DE90046EC71 /* stayTests */,
 				77566209192B1DE90046EC71 /* Frameworks */,
@@ -111,6 +154,13 @@
 		77566209192B1DE90046EC71 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7756626A192B57560046EC71 /* AdSupport.framework */,
+				77566268192B574E0046EC71 /* CoreTelephony.framework */,
+				77566266192B57460046EC71 /* StoreKit.framework */,
+				77566264192B573F0046EC71 /* AVFoundation.framework */,
+				77566262192B57340046EC71 /* SystemConfiguration.framework */,
+				77566260192B572A0046EC71 /* MessageUI.framework */,
+				7756625E192B57220046EC71 /* AudioToolbox.framework */,
 				7756620A192B1DE90046EC71 /* Foundation.framework */,
 				7756620C192B1DE90046EC71 /* CoreGraphics.framework */,
 				7756620E192B1DE90046EC71 /* UIKit.framework */,
@@ -166,6 +216,36 @@
 				77566239192B1DE90046EC71 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7756624A192B55720046EC71 /* weixinSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7756624B192B55720046EC71 /* libWeChatSDK.a */,
+				7756624C192B55720046EC71 /* WXApi.h */,
+				7756624D192B55720046EC71 /* WXApiObject.h */,
+			);
+			path = weixinSDK;
+			sourceTree = "<group>";
+		};
+		7756624F192B55840046EC71 /* adMobSDK */ = {
+			isa = PBXGroup;
+			children = (
+				77566250192B55840046EC71 /* GADAdMobExtras.h */,
+				77566251192B55840046EC71 /* GADAdNetworkExtras.h */,
+				77566252192B55840046EC71 /* GADAdSize.h */,
+				77566253192B55840046EC71 /* GADBannerView.h */,
+				77566254192B55840046EC71 /* GADBannerViewDelegate.h */,
+				77566255192B55840046EC71 /* GADInAppPurchase.h */,
+				77566256192B55840046EC71 /* GADInAppPurchaseDelegate.h */,
+				77566257192B55840046EC71 /* GADInterstitial.h */,
+				77566258192B55840046EC71 /* GADInterstitialDelegate.h */,
+				77566259192B55840046EC71 /* GADModules.h */,
+				7756625A192B55840046EC71 /* GADRequest.h */,
+				7756625B192B55840046EC71 /* GADRequestError.h */,
+				7756625C192B55840046EC71 /* libGoogleAdMobAds.a */,
+			);
+			path = adMobSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +478,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stay/stay-Prefix.pch";
 				INFOPLIST_FILE = "stay/stay-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/weixinSDK",
+					"$(PROJECT_DIR)/adMobSDK",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -412,6 +498,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stay/stay-Prefix.pch";
 				INFOPLIST_FILE = "stay/stay-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/weixinSDK",
+					"$(PROJECT_DIR)/adMobSDK",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;

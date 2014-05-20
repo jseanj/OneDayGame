@@ -70,6 +70,7 @@
 
 - (void)gameOver {
     NSLog(@"game over");
+    [self.delegate sceneGameEnd];
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact
